@@ -26,7 +26,8 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  summary, button { -webkit-tap-highlight-color: transparent; }
   body {
     margin: 0;
     background: var(--paper);
@@ -89,16 +90,18 @@
     color: var(--ink);
     display: grid;
     grid-template-rows: 1fr auto;
-    min-height: calc(100svh - 64px);
+    min-height: min(calc(100vh - 64px), 940px);
+    min-height: min(calc(100svh - 64px), 940px);
   }
   .hero-main {
+    container-type: inline-size;
     display: grid;
     grid-template-columns: 1.15fr 1fr;
-    max-height: 860px;
   }
   .hero-text {
     padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(32px, 4vw, 56px);
-    padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+    /* cqw i stället för vw så att Windows rullningslist inte förskjuter texten */
+    padding-left: max(var(--gutter), calc((100cqw - var(--wrap)) / 2 + var(--gutter)));
     display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
   }
   .hero h1 {
@@ -215,7 +218,9 @@
     transition: padding .2s ease;
   }
   .archive summary::-webkit-details-marker { display: none; }
-  .archive summary:hover { padding-left: 12px; }
+  @media (hover: hover) {
+    .archive summary:hover { padding-left: 12px; }
+  }
   .archive .yr {
     font-size: clamp(30px, 3.4vw, 48px);
     font-weight: 900; letter-spacing: -.04em; line-height: 1;
@@ -302,7 +307,9 @@
   .grid-nypon figure { margin: 0; }
   .grid-nypon .img { aspect-ratio: 1; background: var(--paper-2); overflow: hidden; }
   .grid-nypon img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-  .grid-nypon figure:hover img { transform: scale(1.04); }
+  @media (hover: hover) {
+    .grid-nypon figure:hover img { transform: scale(1.04); }
+  }
   .grid-nypon figcaption { padding-top: 12px; font-size: 14px; line-height: 1.45; color: var(--ink-2); }
   .grid-nypon .y { display: block; font-weight: 800; color: var(--nypon); font-size: 15px; margin-bottom: 4px; }
   .grid-nypon figcaption a { color: var(--ink); font-weight: 600; }
@@ -365,7 +372,7 @@
     .top nav a { padding: 12px 0; font-size: 18px; border-top: 1px solid var(--rule-light); }
     .menu-btn { display: block; }
     .hero { min-height: 0; }
-    .hero-main { grid-template-columns: 1fr; max-height: none; }
+    .hero-main { grid-template-columns: 1fr; }
     .hero-text { max-width: none; }
     .hero-photo { min-height: 320px; }
     .sec-head, .winner, .board, .media-year, .post, .stift-cols { grid-template-columns: 1fr; }
