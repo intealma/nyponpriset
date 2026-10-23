@@ -7,3 +7,5 @@ All text kommer ordagrant från nuvarande nyponpriset.se. Bilderna hämtas däri
 Sidan är en enda fil, `index.html`, utan byggsteg. Öppna den i en webbläsare eller publicera mappen som den är.
 
 Demoversionen har `noindex` så att den inte syns i sökmotorer. Ta bort den raden när sidan går live på den riktiga domänen.
+
+Delningsbilden (`delningsbild.jpg`) visas när länken delas. Taggarna `og:url` och `og:image` pekar på demoadressen och ska bytas till den riktiga domänen vid flytten.
