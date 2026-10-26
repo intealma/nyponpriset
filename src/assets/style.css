@@ -175,6 +175,10 @@ a { color: inherit; }
   padding: 12px 18px;
 }
 .nasta-kal:hover { background: var(--orange); color: var(--ink); }
+@media (max-width: 560px) {
+  .nasta-knappar { width: 100%; }
+  .nasta-kal { flex: 1; text-align: center; padding: 12px 8px; white-space: nowrap; }
+}
 
 /* ---------- Sektioner ---------- */
 section { padding: clamp(64px, 9vw, 128px) 0; }
