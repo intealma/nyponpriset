@@ -1,0 +1,15 @@
+# Nästa prisutdelning. Fyll i när datumet är bestämt, så visas en remsa
+# överst på sidan med en knapp för att lägga in det i kalendern.
+# Remsan försvinner av sig själv dagen efter. Lämna datum tomt när inget är bestämt.
+#
+#   datum:   2026-10-09
+#   tid:     "17.00"   (inom citattecken)
+#   timmar:  1         hur länge det pågår, för kalendern
+#   plats:   Babettes Kafferi
+#   text:    (valfritt) en mening ur inlägget, t.ex. "Evenemanget har fri entré."
+
+datum:
+tid:
+timmar: 1
+plats:
+text:

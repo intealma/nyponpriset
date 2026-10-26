@@ -1,0 +1,53 @@
+# Hantverkarna och deras nypon, nyaste överst.
+# Bilden läggs i src/bilder/nypon/. Länkar skrivs [text](https://adress)
+
+- ar: 2025
+  bild: /bilder/nypon/2025.jpg
+  bild_alt: Nyponpriset 2025
+  text: Nyponpriset för år 2025 är ett linoliumtryck inspirerat av det svarta nyponet från pimpinellrosen tillverkat av [Sandy Harry Ceesay](https://www.albertbonniersforlag.se/forfattare/65281/sandy-harry-ceesay/).
+  foto: "Foto: Sandy Harry Ceesay"
+- ar: 2024
+  bild: /bilder/nypon/2024.jpg
+  bild_alt: Nyponpriset 2024
+  text: Nyponpriset för år 2024 tillverkades i trä med 3D-printade detaljer av konstnären och serietecknaren [Mikael Hammarberg](https://www.instagram.com/gubbakvarten/), verksam i Linköping.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2023
+  bild: /bilder/nypon/2023.jpg
+  bild_alt: Nyponpriset 2023
+  text: Nyponpriset för år 2023 tillverkades i trä med intarsiateknik av dekupören och konstnären [Klara Knutsson](https://www.klaraknutsson.com/) uppvuxen i Linköping, nu verksam i Stockholm.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2022
+  bild: /bilder/nypon/2022.jpg
+  bild_alt: Nyponpriset 2022
+  text: År 2022 gjordes Nyponpriset i porslin av keramiker [Caroline Harrius](https://carolineharrius.com) från Linköping, verksam i Stockholm.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2021
+  bild: /bilder/nypon/2021.jpg
+  bild_alt: Nyponpriset 2021
+  text: Nyponpriset för 2021 är ett nypon är skapat av [Jonathan Dewoon](https://www.jonathandewoon.com) i målat trä, papier-maché och ull.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2020
+  bild: /bilder/nypon/2020.jpg
+  bild_alt: Nyponpriset 2020
+  text: Nyponpriset år 2020 är ett grafiskt blad tillverkat av bildkonstnär [Isabelle Nilsson](https://www.lexikonettamanda.se/show.php?aid=23696), verksam i Grytgöl.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2019
+  bild: /bilder/nypon/2019.jpg
+  bild_alt: Nyponpriset 2019
+  text: Nyponpriset för år 2019 tillverkades i blandteknik av textilhantverkare [Jenny Karlsson](https://www.jenkarlsson.se), verksam i Linköping.
+  foto: "Foto: Johanna Sjöberg"
+- ar: 2018
+  bild: /bilder/nypon/2018.jpg
+  bild_alt: Nyponpriset 2018
+  text: År 2018 tillverkades nyponpriset av målad fräst mdf-skiva av konstnären [Mattias Frisk](https://mattiasfrisk.com), verksam i Mjölby.
+  foto: Foto Mattias Frisk
+- ar: 2017
+  bild: /bilder/nypon/2017.jpg
+  bild_alt: Nyponpriset 2017
+  text: Nyponpriset tillverkades i glas av glasblåsaren [Sofia Viveland](https://www.instagram.com/glasformsofia/), verksam i Linköping.
+  foto: Foto Anton H le Clercq
+- ar: 2016
+  bild: /bilder/nypon/2016.jpg
+  bild_alt: Nyponpriset 2016
+  text: Nyponpriset tillverkades i trä av slöjdaren [Mikael Nilsson](http://www.miknil.se), verksam i Linköping.
+  foto: Foto Johanna Sjöberg

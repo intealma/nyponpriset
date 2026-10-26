@@ -1,0 +1,80 @@
+# Stipendiater, nyaste överst. Den översta visas stort överst på sidan.
+#
+# Ny stipendiat: kopiera ett block, klistra in det överst och ändra.
+#   ar:          året
+#   namn:        som det ska stå i rubriken
+#   plats:       (valfritt) visas efter namnet, t.ex. "på Bengans Skivbutik"
+#   bild:        lägg bilden i src/bilder/stipendiater/ och skriv sökvägen här
+#   bild_alt:    kort beskrivning av bilden för skärmläsare
+#   foto:        fotografens namn så som det ska stå
+#   motivering:  hela texten. Länkar skrivs [text](https://adress)
+#   citat:       (valfritt) början av motiveringen som visas stort
+#   heder:       (valfritt) hedersnypon samma år
+
+- ar: 2025
+  namn: Edvard Nissen
+  plats: på Bengans Skivbutik
+  bild: /bilder/stipendiater/2025.jpg
+  bild_alt: Edvard Nissen
+  foto: "Foto (beskuret): Visit Linköping"
+  motivering: Det handlar om så mycket mer än några hundra kronor och en bit plast. Det handlar om identitet, möten och gemenskap. I värmen, vid skivbacken bredvid dig, står någon som längtar på samma sätt som du. Efter att bli förstådd, efter sitt egna soundtrack. Här möts gammal och ung. Här möts nördar och cool cats. Här lever kulturen. Och bakom kassan står han stadig genom åren – mittfältsgeneralen! Han som med upptäckarglädjen kvar under kepsen fortsatt tror på musikens enande och helande kraft. Tack för att du ser till att musiken har ett öppet och ombonat hem i staden. Tack för hålet genom kulissen, ut till verkligheten, drömmen. Ut till dom där färgerna man bara ser på bio…
+  citat: Det handlar om så mycket mer än några hundra kronor och en bit plast. Det handlar om identitet, möten och gemenskap.
+  heder:
+    namn: Anton H le Clercq
+    text: Samtidigt tilldelades Anton H le Clercq ett hedersnypon på 50 000 kronor för sitt mångåriga engagemang för kultur i Linköping. (Läs [Antons tacktal](/dokument/anton-le-clercq-tacktal-2025.pdf) här.)
+- ar: 2024
+  namn: Mona Larsson och Tedde Tillberg
+  bild: /bilder/stipendiater/2024.jpg
+  bild_alt: Mona Larsson och Tedde Tillberg
+  foto: "Foto: Johanna Sjöberg"
+  motivering: Nyponet 2024 tilldelas Mona Larsson och Tedde Tillberg för sitt arbete med Cirkuscaféets livescen. Den lilla scenen spelar en stor roll i kultur-Sverige. Den lever ofta ett skört liv, men den har också möjligheten att ta sina egna vägar. Visor, blues, jazz, irländsk folkmusik och coverband lyser ofta med sin frånvaro i dom större salongerna, men i Vasastaden finns en plattform. Här finns en chans för morgondagens (liksom gårdagens) stjärnor att möta en publik. Cirkuscaféet har, med rik variation, visat att både utbud och efterfrågan finns. Här serveras kaffe och smörgåsar långt innan medelklassen ens har vaknat, och på fredagskvällarna ljuder livemusiken. Ett sånt kafé gör Linköping till en roligare stad, men det kräver också sina eldsjälar. Tack Mona och Tedde för ett strålande jobb!
+- ar: 2023
+  namn: Jakob Graf
+  bild: /bilder/stipendiater/2023.jpg
+  bild_alt: Jakob Graf
+  foto: "Foto: Johanna Sjöberg"
+  motivering: Nyponet 2023 tilldelas Jakob Graf för att han svept in som en virvelvind i Linköpingskulturen och blåst nytt liv i gamla scener. Med nyfikenhet, idérikedom och en målgrupp lika bred som den styrande koalitionen är han primus motor bakom uppskattade teatrar, konserter och kreativa påhitt. Jakobs arrangemang ger många lokala kulturutövare en scen och ett sammanhang, och övriga Linköpingsbor ett bredare urval av underhållning. Vi tackar för showen!
+- ar: 2022
+  namn: Åke Andersson och Anders Karlsson
+  bild: /bilder/stipendiater/2022.jpg
+  bild_alt: Åke Andersson och Anders Karlsson
+  foto: "Foto: Mattias Ahlén"
+  motivering: Nyponet 2022 tilldelas Åke Andersson och Anders Karlsson, på [Eklunda Bio](https://www.eklundabio.se) i Bestorp. När andra pratar streaming och biografdöd har Åke och Anders byggt där dom står, och lyckats hålla liv i en över åttio år gammal biograf på landsbygden. Det krävs eldsjälar till det. Bland dom stora jättarna är lilla Eklunda bio en unik uppstickare som klarat hård motvind, och envist tagit världen till byn. Generationer har mötts framför independentfilm, familjeäventyr och direktsänd opera. Vi tackar för den envisheten!
+- ar: 2021
+  namn: Ben Kersley
+  bild: /bilder/stipendiater/2021.jpg
+  bild_alt: Ben Kersley
+  foto: "Foto: Mattias Ahlén"
+  motivering: |-
+    ETT GOTT SKRATT FÖRGYLLER STADEN!<br>
+    Med obändig vilja och med mer energi än Tekniska verken har han satt Linköping på humorkartan. Idag är staden ett givet stopp för varje stand up-komiker på turné. 2006 landade denna brittiska eldsjäl på den östgötska slätten och sedan dess har inget varit sig likt. Krog, teater, dansbana eller parkeringshus. Lokalen har spelat mindre roll. Publiken har kommit, garvat och längtat till nästa gång. Vi lyfter på hatten och tackar för skratten. Snälla Ben Kersley, keep Linköping laughing!
+- ar: 2020
+  namn: Sami Rahim
+  bild: /bilder/stipendiater/2020.jpg
+  bild_alt: Sami Rahim
+  foto: "Foto: Anton H le Clercq"
+  motivering: Nyponet 2020 tilldelas Sami Rahim för hans passionerade strävan att göra Linköping till en roligare och bättre stad. Med stort hjärta och varm famn välkomnades kulturen till restaurang L’Orient. Under sexton år hade Linköping ett välbehövligt, svängande vardagsrum med plats för alla. Punkiga nitjackor avlöstes av argentinska tangoklänningar. Vi säger tack för dansen och ser fram emot framtida projekt!
+- ar: 2019
+  namn: Ulrika Reinholdsson
+  bild: /bilder/stipendiater/2019.jpg
+  bild_alt: Ulrika Reinholdsson
+  foto: "Foto: Mattias Ahlén"
+  motivering: Lars Winnerbäcks stiftelses pris Nyponet 2019 tilldelas Ulrika Reinholdsson för sitt ideella arbete som repertoaransvarig i [Riksteatern Linköping (tidigare Karil)](https://karil.se) och för att hon är en stöttande, entusiasmerande kraft för lokala kreatörer. Med stor nyfikenhet och fingertoppskänsla ger Ulrika Linköpingspubliken tillgång till mångsidiga kulturupplevelser. Hon är en eldsjäl med stort hjärta och engagemang, som brinner för ett berikat kulturliv för alla.
+- ar: 2018
+  namn: Sam Anlér
+  bild: /bilder/stipendiater/2018.jpg
+  bild_alt: Sam Anlér
+  foto: "Foto: Johanna Sjöberg"
+  motivering: Lars Winnerbäcks stiftelses pris Nyponet 2018 tilldelas Sam Anlér för arbetet med [NärCon-festivalen](http://portal.narcon.se). Sedan 2011 har Sam berikat Linköpings kulturliv genom att möjliggöra för människor att leva ut sitt intresse för populärkultur, spel och cosplay. Festivalen, som lockar tusentals besökare varje år, gör Linköping till en mötesplats för framförallt unga entusiaster från hela landet. NärCons inkluderande värderingar och dess färgsprakande kortege illustrerar hur Sams engagemang bidrar till att göra Linköping till en gladare och öppnare stad.
+- ar: 2017
+  namn: Kaj Sivervik och Patrik Lindecrantz
+  bild: /bilder/stipendiater/2017.jpg
+  bild_alt: Kaj Sivervik och Patrik Lindecrantz
+  foto: "Foto: Anton H Le Clercq"
+  motivering: Lars Winnerbäcks stiftelses pris Nyponet 2017 tilldelas Kaj Sivervik och Patrik Lindecrantz för sitt arbete med GAPHALS och [CITY TO CITY](https://www.facebook.com/pg/citytocity/about/?ref=page_internal). För att ha berikat Linköping som kulturstad genom hundratals konserter där engagemang, lust och genuint intresse gått före ekonomisk vinning. För att med stora visioner, men med förankring i det lokala, ha skapat mötesplatser för musikintresserade och en viktig scen både för den smala och breda livemusiken.
+- ar: 2016
+  namn: Erika Wessbo, Lydia Halldorf och Christina Eveborn
+  bild: /bilder/stipendiater/2016.jpg
+  bild_alt: Erika Wessbo, Lydia Halldorf och Christina Eveborn
+  foto: Foto Peter Jigerström
+  motivering: Lars Winnerbäcks stiftelse tilldelar Erika Wessbo, Lydia Halldorf och Christina Eveborn 2016 års Nypon-stipendium för sitt arbete med [BABETTES KAFFERI OCH KULTURFÖRENING](http://babettes.se/kultur.html). För det generösa och modiga initiativet att skapa ett forum för musik, konst och litteratur på ett kafé mitt i stan. En unik pärla bland många kedjor. Erika, Lydia och Christina har genom Babettes gjort Linköping till en bättre, roligare och mer inkluderande kulturstad.

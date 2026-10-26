@@ -1,0 +1,431 @@
+:root {
+  --paper: #f5efe6;
+  --paper-2: #ece4d8;
+  --ink: #171311;
+  --ink-2: #4a423d;
+  --muted: #7a7069;
+  --orange: #e0592a;
+  --nypon: #b42619;
+  --rule: rgba(23, 19, 17, .16);
+  --rule-light: rgba(255, 255, 255, .22);
+  --wrap: 1320px;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+summary, button { -webkit-tap-highlight-color: transparent; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Små etiketter */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.dot {
+  display: inline-block;
+  width: .62em; height: .62em;
+  border-radius: 50%;
+  background: var(--nypon);
+  margin-right: .55em;
+  vertical-align: .05em;
+}
+.credit { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* ---------- Sidhuvud ---------- */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--ink);
+  color: #fff;
+}
+.top .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.top .logo img { height: 38px; width: auto; }
+.top nav { display: flex; gap: 28px; }
+.top nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: .82;
+}
+.top nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.menu-btn {
+  display: none;
+  background: none; border: 1px solid var(--rule-light); color: #fff;
+  font: 600 13px/1 "Libre Franklin", sans-serif; letter-spacing: .1em; text-transform: uppercase;
+  padding: 10px 14px; cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--orange);
+  color: var(--ink);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: min(calc(100vh - 64px), 940px);
+  min-height: min(calc(100svh - 64px), 940px);
+}
+.hero-main {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+}
+.hero-text {
+  padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(32px, 4vw, 56px);
+  /* cqw i stället för vw så att Windows rullningslist inte förskjuter texten */
+  padding-left: max(var(--gutter), calc((100cqw - var(--wrap)) / 2 + var(--gutter)));
+  display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
+}
+.hero h1 {
+  font-size: clamp(46px, 7vw, 112px);
+  line-height: .92;
+  letter-spacing: -.035em;
+  font-weight: 900;
+  margin: 20px 0 0;
+}
+.hero h1 em { font-style: normal; color: #fff; }
+.hero-intro {
+  margin: 0;
+  max-width: 30ch;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+  font-weight: 500;
+}
+.hero-photo {
+  position: relative;
+  background: var(--orange);
+  overflow: hidden;
+}
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(1.9) contrast(.9);
+  mix-blend-mode: multiply;
+}
+
+/* Årtalsraden */
+.years { background: var(--ink); }
+.years .wrap {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding-top: 18px; padding-bottom: 18px;
+}
+.years a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: clamp(16px, 1.7vw, 24px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  padding: 4px 0;
+  transition: color .15s ease;
+}
+.years a:last-child { color: var(--orange); }
+.years a:hover { color: var(--orange); }
+.years a:last-child:hover { color: #fff; }
+.years { position: relative; }
+.years a { -webkit-touch-callout: none; }
+
+/* Glimten: foto och nypon när man pekar på ett år */
+.glimt {
+  position: absolute; bottom: calc(100% + 12px); left: 50%; z-index: 5;
+  width: min(320px, calc(100vw - 32px));
+  background: var(--paper); color: var(--ink);
+  padding: 10px 10px 12px;
+  transform: translate(-50%, 8px); opacity: 0;
+  transition: opacity .15s ease, transform .15s ease;
+  pointer-events: none;
+}
+.glimt.syns { opacity: 1; transform: translate(-50%, 0); }
+.glimt-bilder { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.glimt-bilder img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-2); display: block; }
+.glimt-nypon[hidden] { display: none; }
+.glimt-bilder:has(.glimt-nypon[hidden]) { grid-template-columns: 1fr; }
+.glimt p { margin: 10px 2px 0; font-size: 14px; line-height: 1.35; font-weight: 600; }
+.glimt-ar { color: var(--nypon); font-weight: 900; margin-right: 6px; }
+
+/* Nästa prisutdelning */
+.nasta { background: var(--nypon); color: #fff; }
+.nasta .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap;
+  padding-top: 16px; padding-bottom: 16px;
+}
+.nasta .label { color: rgba(255, 255, 255, .8); }
+.nasta-nar { margin: 4px 0 0; font-size: clamp(17px, 1.6vw, 21px); }
+.nasta-nar strong { font-weight: 800; }
+.nasta-text { margin: 2px 0 0; font-size: 15px; color: rgba(255, 255, 255, .85); }
+.nasta-kal {
+  flex: none;
+  background: var(--paper); color: var(--ink);
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  padding: 12px 18px;
+}
+.nasta-kal:hover { background: var(--orange); color: var(--ink); }
+
+/* ---------- Sektioner ---------- */
+section { padding: clamp(64px, 9vw, 128px) 0; }
+.sec-head {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 24px;
+  border-top: 2px solid var(--ink);
+  padding-top: 18px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+.sec-head h2 {
+  margin: 0;
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-weight: 800;
+}
+.sec-head p { margin: 0; max-width: 52ch; color: var(--ink-2); }
+
+/* ---------- Senaste stipendiat ---------- */
+.winner { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.winner figure { margin: 0; }
+.winner figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-2); }
+.winner h3 {
+  font-size: clamp(40px, 5.4vw, 80px);
+  line-height: .95; letter-spacing: -.035em; font-weight: 900;
+  margin: 14px 0 6px;
+}
+.winner .where { font-size: 19px; font-weight: 500; color: var(--ink-2); margin: 0 0 36px; }
+.quote {
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.32;
+  letter-spacing: -.01em;
+  font-weight: 500;
+  margin: 0 0 24px;
+  padding-left: 22px;
+  border-left: 4px solid var(--nypon);
+}
+.winner .body { color: var(--ink-2); max-width: 60ch; }
+.honor {
+  margin-top: 40px;
+  display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.honor-badge {
+  width: 84px; height: 84px; border-radius: 50%;
+  background: var(--nypon); color: #fff;
+  display: grid; place-items: center; text-align: center;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.2;
+}
+.honor h4 { margin: 2px 0 4px; font-size: 20px; letter-spacing: -.01em; }
+.honor p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.honor a { font-weight: 600; }
+
+/* ---------- Stipendiatarkiv ---------- */
+.archive-intro { margin: clamp(64px, 8vw, 104px) 0 18px; color: var(--ink-2); }
+.archive { border-top: 1px solid var(--rule); }
+.archive details { border-bottom: 1px solid var(--rule); }
+.archive summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 140px 1fr 40px;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 0;
+  cursor: pointer;
+  transition: padding .2s ease;
+}
+.archive summary::-webkit-details-marker { display: none; }
+@media (hover: hover) {
+  .archive summary:hover { padding-left: 12px; }
+}
+.archive .yr {
+  font-size: clamp(30px, 3.4vw, 48px);
+  font-weight: 900; letter-spacing: -.04em; line-height: 1;
+  color: var(--nypon);
+}
+.archive .who { font-size: clamp(18px, 1.6vw, 22px); font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
+.archive .plus {
+  justify-self: end;
+  width: 32px; height: 32px; border: 1px solid var(--ink); border-radius: 50%;
+  position: relative;
+}
+.archive .plus::before, .archive .plus::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 12px; height: 1.5px; background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform .2s ease;
+}
+.archive .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+.archive details[open] .plus { background: var(--ink); }
+.archive details[open] .plus::before { background: #fff; }
+.archive details[open] .plus::after { transform: translate(-50%, -50%) rotate(0); background: #fff; }
+.archive .open {
+  display: grid; grid-template-columns: 140px 280px 1fr; gap: 24px;
+  padding: 4px 0 36px;
+}
+.archive .open figure { grid-column: 2; margin: 0; }
+.archive .open img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-2); }
+.archive .open .txt { grid-column: 3; max-width: 62ch; color: var(--ink-2); }
+.archive .open .txt p { margin-top: 0; }
+
+/* ---------- Inlägg ---------- */
+.inlagg { background: var(--paper-2); }
+.post {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 24px;
+  border-top: 1px solid var(--rule);
+  padding: 28px 0 32px;
+}
+.post[hidden] { display: none; }
+.post time { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+.post h3 { margin: 0 0 12px; font-size: clamp(21px, 2vw, 26px); line-height: 1.2; letter-spacing: -.015em; font-weight: 800; }
+.post .txt { max-width: 64ch; color: var(--ink-2); font-size: 16px; }
+.post .txt p { margin: 0 0 10px; }
+.post .txt p:last-child { margin-bottom: 0; }
+.post figure { margin: 18px 0 0; }
+.post figure img { width: 100%; }
+.post figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.pager {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  border-top: 2px solid var(--ink);
+  padding-top: 18px;
+}
+.pager .nums { display: flex; gap: 6px; }
+.pager button {
+  font: 600 14px/1 "Libre Franklin", sans-serif;
+  background: none; border: 1px solid var(--ink); color: var(--ink);
+  padding: 10px 14px; cursor: pointer;
+}
+.pager .nums button { width: 38px; padding: 10px 0; }
+.pager button[aria-current="page"] { background: var(--ink); color: #fff; }
+.pager button:disabled { opacity: .3; cursor: default; }
+.pager button:not(:disabled):not([aria-current="page"]):hover { background: var(--orange); border-color: var(--orange); }
+
+/* ---------- Stiftelsen ---------- */
+.about { background: var(--ink); color: #fff; }
+.about .sec-head { border-color: #fff; }
+.about .sec-head p { color: rgba(255,255,255,.75); }
+.lead {
+  font-size: clamp(26px, 3.2vw, 46px);
+  line-height: 1.18;
+  letter-spacing: -.02em;
+  font-weight: 500;
+  max-width: 26ch;
+  margin: 0 0 clamp(48px, 6vw, 88px);
+}
+.lead strong { color: var(--orange); font-weight: 600; }
+.stift-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.stift-cols p { margin: 0; border-top: 1px solid var(--rule-light); padding-top: 20px; color: rgba(255,255,255,.8); font-size: 18px; max-width: 46ch; }
+
+/* ---------- Hantverkare ---------- */
+.grid-nypon {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: clamp(28px, 3vw, 44px) clamp(14px, 1.6vw, 24px);
+}
+.grid-nypon figure { margin: 0; }
+.grid-nypon .img { aspect-ratio: 1; background: var(--paper-2); overflow: hidden; }
+.grid-nypon img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+@media (hover: hover) {
+  .grid-nypon figure:hover img { transform: scale(1.04); }
+}
+.grid-nypon figcaption { padding-top: 12px; font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.grid-nypon .y { display: block; font-weight: 800; color: var(--nypon); font-size: 15px; margin-bottom: 4px; }
+.grid-nypon figcaption a { color: var(--ink); font-weight: 600; }
+.grid-nypon .credit { margin-top: 6px; }
+
+/* ---------- Media ---------- */
+.media-top { margin: 0 0 32px; font-size: 18px; }
+.media-top a, .media-year a { text-decoration: none; font-weight: 500; }
+.media-top a:hover, .media-year a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.media-year { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; border-top: 1px solid var(--rule); padding: 20px 0 28px; }
+.media-year h3 { margin: 0; font-size: 28px; font-weight: 900; letter-spacing: -.03em; }
+.media-year ul { list-style: none; margin: 0; padding: 0; }
+.media-year li { padding: 6px 0; }
+.more-years > summary {
+  list-style: none; cursor: pointer;
+  display: inline-block; margin-top: 16px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--orange); padding-bottom: 2px;
+}
+.more-years > summary::-webkit-details-marker { display: none; }
+.more-years[open] > summary { display: none; }
+
+/* ---------- Styrelsen ---------- */
+.board { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.board img { width: 100%; aspect-ratio: 300 / 222; object-fit: cover; }
+.board .chair { font-size: clamp(24px, 2.4vw, 32px); font-weight: 500; letter-spacing: -.02em; margin: 0 0 32px; line-height: 1.2; }
+.board .chair b { font-weight: 800; }
+.board .sub { margin: 0 0 8px; color: var(--muted); font-size: 15px; }
+.board ul { list-style: none; padding: 0; margin: 0 0 32px; }
+.board li { padding: 10px 0; border-top: 1px solid var(--rule); font-size: 18px; font-weight: 500; display: flex; justify-content: space-between; gap: 12px; }
+.board li span { color: var(--muted); font-weight: 400; font-size: 15px; }
+.board .policy { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--orange); padding-bottom: 2px; }
+
+/* Hjälpklasser (ersätter inline-stilar, som säkerhetsregeln inte tillåter) */
+.no-top { padding-top: 0; }
+.grid-nypon .credit { display: block; }
+.board figure { margin: 0; }
+
+/* ---------- Sidfot ---------- */
+footer { background: var(--ink); color: #fff; padding: clamp(56px, 7vw, 96px) 0 32px; }
+.foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+.foot img { height: 44px; width: auto; margin-bottom: 20px; }
+.foot p { margin: 0; color: rgba(255,255,255,.7); max-width: 40ch; font-size: 15px; }
+.foot h4 { margin: 0 0 12px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); }
+.foot ul { list-style: none; margin: 0; padding: 0; }
+.foot li { padding: 4px 0; }
+.foot a { text-decoration: none; opacity: .85; }
+.foot a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+.fine { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule-light); display: flex; justify-content: space-between; gap: 16px; font-size: 13px; color: rgba(255,255,255,.55); flex-wrap: wrap; }
+
+/* ---------- Responsivt ---------- */
+@media (max-width: 1080px) {
+  .grid-nypon { grid-template-columns: repeat(3, 1fr); }
+  .archive summary { grid-template-columns: 100px 1fr 32px; }
+  .archive .open { grid-template-columns: 100px 220px 1fr; }
+}
+@media (max-width: 860px) {
+  .top nav {
+    display: none;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--ink); flex-direction: column; gap: 0;
+    padding: 8px var(--gutter) 20px;
+  }
+  .top nav.show { display: flex; }
+  .top nav a { padding: 12px 0; font-size: 18px; border-top: 1px solid var(--rule-light); }
+  .menu-btn { display: block; }
+  .hero { min-height: 0; }
+  .hero-main { grid-template-columns: 1fr; }
+  .hero-text { max-width: none; }
+  .hero-photo { min-height: 320px; }
+  .sec-head, .winner, .board, .media-year, .post, .stift-cols { grid-template-columns: 1fr; }
+  .post { gap: 8px; }
+  .stift-cols p + p { margin-top: 28px; }
+  .archive .open { grid-template-columns: 1fr; }
+  .archive .open figure, .archive .open .txt { grid-column: 1; }
+  .archive .open figure { max-width: 320px; }
+  .foot { grid-template-columns: 1fr 1fr; }
+  .foot > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .years .wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px 12px; }
+  .grid-nypon { grid-template-columns: 1fr; }
+  .grid-nypon figure { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
+  .grid-nypon figcaption { padding-top: 0; }
+  .archive summary { grid-template-columns: 64px 1fr 32px; gap: 14px; }
+  .archive .yr { font-size: 26px; }
+  .pager .nums { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+  .glimt { transform: translate(-50%, 0); }
+}

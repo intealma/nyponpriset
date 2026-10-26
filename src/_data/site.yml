@@ -1,0 +1,8 @@
+# Sajtens adress. Byt url här vid domänbytet, t.ex. till https://www.nyponpriset.se/
+# Allt annat (delningsbild, sökvägar) följer med automatiskt.
+
+url: https://intealma.github.io/nyponpriset/
+titel: Nyponet – Kulturpriset Nyponet
+namn: Kulturpriset Nyponet
+beskrivning: Lars Winnerbäcks Stiftelse har till uppgift att främja kulturlivet i Linköpings kommun.
+synlig_i_sok: false

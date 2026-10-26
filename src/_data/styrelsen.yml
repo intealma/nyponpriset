@@ -1,0 +1,21 @@
+# Stiftelsens styrelse. "ar" är valfritt och visas till höger om namnet.
+
+ordforande: Lars Winnerbäck
+ledamoter_rubrik: "Övriga ledamöter är:"
+ledamoter:
+  - namn: Mattias Ahlén
+  - namn: Emil Oskar Andersson
+  - namn: Ulrika Reinholdsson
+  - namn: Johanna Sjöberg
+  - namn: Emma Högström
+    ar: (2015-2026)
+  - namn: Johan Hagesund
+    ar: (2015-2026)
+  - namn: Christel Valsinger
+    ar: (2015-2020)
+  - namn: Jan Gradvall
+    ar: (2015-2018)
+bild: /bilder/styrelsen.jpg
+foto: "Foto: Anton H he Clercq"
+policy_text: Stiftelsens integritetspolicy
+policy: /dokument/integritetspolicy.pdf

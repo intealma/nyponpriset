@@ -1,0 +1,317 @@
+---
+permalink: /index.html
+---
+{%- set utvald = stipendiater[0] -%}
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+{%- if not site.synlig_i_sok %}
+<meta name="robots" content="noindex, nofollow">
+{%- endif %}
+<title>{{ site.titel }}</title>
+<meta name="description" content="{{ site.beskrivning }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="{{ site.namn }}">
+<meta property="og:title" content="{{ site.namn }}">
+<meta property="og:description" content="{{ site.beskrivning }}">
+<meta property="og:url" content="{{ site.url }}">
+<meta property="og:image" content="{{ site.url }}delningsbild.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.namn }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/libre-franklin-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Nyponet, till startsidan">
+      <img src="/bilder/logo.png" alt="Nyponet">
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Meny</button>
+    <nav id="nav">
+      <a href="#stipendiater">Stipendiater</a>
+      <a href="#inlagg">Inlägg</a>
+      <a href="#stiftelsen">Stiftelsen</a>
+      <a href="#hantverkare">Hantverkare</a>
+      <a href="#media">I media</a>
+      <a href="#styrelsen">Styrelsen</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  {%- if prisutdelning.datum | kommande %}
+  <!-- NÄSTA PRISUTDELNING -->
+  <aside class="nasta" data-slut="{{ prisutdelning.datum | isoDatum }}T23:59:59" aria-label="Nästa prisutdelning">
+    <div class="wrap">
+      <div class="nasta-info">
+        <span class="label">Nästa prisutdelning</span>
+        <p class="nasta-nar"><strong>{{ prisutdelning.datum | datum }}{% if prisutdelning.tid %} kl. {{ prisutdelning.tid | tidText }}{% endif %}</strong>{% if prisutdelning.plats %} · {{ prisutdelning.plats }}{% endif %}</p>
+        {%- if prisutdelning.text %}
+        <p class="nasta-text">{{ prisutdelning.text }}</p>
+        {%- endif %}
+      </div>
+      <a class="nasta-kal" href="/prisutdelning.ics" download="nyponet-prisutdelning.ics">Lägg till i kalendern</a>
+    </div>
+  </aside>
+  {%- endif %}
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-main">
+      <div class="hero-text">
+        <div>
+          <div class="label">{{ texter.hero_etikett }}</div>
+          <h1>{{ texter.hero_rubrik }} <em>{{ texter.hero_rubrik_vit }}</em></h1>
+        </div>
+        <p class="hero-intro">{{ texter.hero_text }}</p>
+      </div>
+      <div class="hero-photo">
+        <img src="/bilder/hero.jpg" alt="">
+      </div>
+    </div>
+    <nav class="years" aria-label="Stipendiater år för år">
+      <div class="wrap">
+        {%- for s in stipendiater | reverse %}
+        {%- set nypon = hantverkare | hitta(s.ar) %}
+        <a href="{% if loop.last %}#stipendiater{% else %}#y{{ s.ar }}{% endif %}" data-namn="{{ s.namn }}{% if s.plats %} {{ s.plats }}{% endif %}" data-bild="{{ s.bild | url }}"{% if nypon %} data-nypon="{{ nypon.bild | url }}"{% endif %}>{{ s.ar }}</a>
+        {%- endfor %}
+      </div>
+      <div class="glimt" aria-hidden="true" hidden>
+        <div class="glimt-bilder"></div>
+        <p><span class="glimt-ar"></span><span class="glimt-namn"></span></p>
+      </div>
+    </nav>
+  </div>
+
+  <!-- STIPENDIATER -->
+  <section id="stipendiater">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Stipendiater</h2>
+        <p>{{ texter.stipendiater }}</p>
+      </div>
+
+      <div class="winner">
+        <figure>
+          <img src="{{ utvald.bild }}" alt="{{ utvald.bild_alt }}">
+          <figcaption class="credit">{{ utvald.foto }}</figcaption>
+        </figure>
+        <div>
+          <div class="label"><span class="dot"></span>Nyponet {{ utvald.ar }}</div>
+          <h3>{{ utvald.namn }}</h3>
+          {%- if utvald.plats %}
+          <p class="where">{{ utvald.plats }}</p>
+          {%- endif %}
+          {%- if utvald.citat %}
+          <p class="quote">{{ utvald.citat }}</p>
+          {%- endif %}
+          <div class="body">
+            {{ utvald.motivering | utanCitat(utvald.citat) | md | safe }}
+          </div>
+          {%- if utvald.heder %}
+          <div class="honor">
+            <div class="honor-badge">Heders&shy;nypon</div>
+            <div>
+              <h4>{{ utvald.heder.namn }}</h4>
+              <p>{{ utvald.heder.text | mdInline | safe }}</p>
+            </div>
+          </div>
+          {%- endif %}
+        </div>
+      </div>
+
+      <p class="archive-intro">{{ texter.arkiv_intro }}</p>
+      <div class="archive">
+        {%- for s in stipendiater %}
+
+        <details id="y{{ s.ar }}">
+          <summary><span class="yr">{{ s.ar }}</span><span class="who">{{ s.namn }}{% if s.plats %} {{ s.plats }}{% endif %}</span><span class="plus" aria-hidden="true"></span></summary>
+          <div class="open">
+            <figure><img loading="lazy" src="{{ s.bild }}" alt="{{ s.bild_alt }}"><figcaption class="credit">{{ s.foto }}</figcaption></figure>
+            <div class="txt">{{ s.motivering | md | safe }}</div>
+          </div>
+        </details>
+        {%- endfor %}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INLÄGG -->
+  <section class="inlagg" id="inlagg">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Inlägg</h2>
+      </div>
+
+      <div class="posts">
+        {%- for post in collections.inlagg %}
+
+        <article class="post">
+          <time datetime="{{ post.date | isoDatum }}">{{ post.date | datum }}</time>
+          <div>
+            <h3>{{ post.data.rubrik }}</h3>
+            <div class="txt">
+              {{ post.content | safe }}
+            </div>
+            {%- if post.data.bild %}
+            <figure>
+              <img loading="lazy" src="{{ post.data.bild }}" alt="{{ post.data.bild_alt }}">
+              <figcaption>{{ post.data.bildtext }}</figcaption>
+            </figure>
+            {%- endif %}
+          </div>
+        </article>
+        {%- endfor %}
+
+      </div>
+
+      <nav class="pager" aria-label="Sidor med inlägg">
+        <button type="button" data-step="-1">← Föregående sida</button>
+        <div class="nums"></div>
+        <button type="button" data-step="1">Nästa sida →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- STIFTELSEN -->
+  <section class="about" id="stiftelsen">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Stiftelsen</h2>
+        <p>{{ texter.stiftelsen }}</p>
+      </div>
+      <p class="lead">{{ texter.stiftelsen_stor | mdInline | safe }}</p>
+      <div class="stift-cols">
+        {%- for p in texter.stiftelsen_spalter %}
+        <p>{{ p }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- HANTVERKARE -->
+  <section id="hantverkare">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Hantverkare</h2>
+        <p>{{ texter.hantverkare }}</p>
+      </div>
+      <div class="grid-nypon">
+        {%- for h in hantverkare %}
+        <figure>
+          <div class="img"><img loading="lazy" src="{{ h.bild }}" alt="{{ h.bild_alt }}"></div>
+          <figcaption><span class="y">{{ h.ar }}</span>{{ h.text | mdInline | safe }}<span class="credit">{{ h.foto }}</span></figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  {%- macro mediaAr(a) %}
+      <div class="media-year">
+        <h3>{{ a.ar }}</h3>
+        <ul>
+          {%- for x in a.artiklar %}
+          <li><a href="{{ x.url }}" target="_blank" rel="noopener">{{ x.titel }}</a>{% if x.efter %} {{ x.efter }}{% endif %}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+  {%- endmacro %}
+  <section id="media" class="no-top">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Nyponet i media</h2>
+      </div>
+      {% for x in media.utvald %}
+      <p class="media-top"><a href="{{ x.url }}" target="_blank" rel="noopener">{{ x.titel }}</a></p>
+      {%- endfor %}
+      {% for a in media.ar | batch(3) | first %}{{ mediaAr(a) }}{% endfor %}
+
+      {%- if media.ar.length > 3 %}
+      <details class="more-years">
+        <summary>Visa äldre år</summary>
+        {%- for a in media.ar %}{% if loop.index > 3 %}{{ mediaAr(a) }}{% endif %}{% endfor %}
+      </details>
+      {%- endif %}
+    </div>
+  </section>
+
+  <!-- STYRELSEN -->
+  <section id="styrelsen" class="no-top">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Stiftelsens styrelse</h2>
+      </div>
+      <div class="board">
+        <figure>
+          <img loading="lazy" src="{{ styrelsen.bild }}" alt="Stiftelsens styrelse">
+          <figcaption class="credit">{{ styrelsen.foto }}</figcaption>
+        </figure>
+        <div>
+          <p class="chair"><b>{{ styrelsen.ordforande }}</b> är stiftelsens ordförande.</p>
+          <p class="sub">{{ styrelsen.ledamoter_rubrik }}</p>
+          <ul>
+            {%- for l in styrelsen.ledamoter %}
+            <li>{{ l.namn }}{% if l.ar %} <span>{{ l.ar }}</span>{% endif %}</li>
+            {%- endfor %}
+          </ul>
+          <a class="policy" href="{{ styrelsen.policy }}" target="_blank" rel="noopener">{{ styrelsen.policy_text }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="/bilder/logo.png" alt="Nyponet">
+        <p>{{ site.namn }}</p>
+      </div>
+      <div>
+        <h4>Sidan</h4>
+        <ul>
+          <li><a href="#stipendiater">Stipendiater</a></li>
+          <li><a href="#inlagg">Inlägg</a></li>
+          <li><a href="#stiftelsen">Stiftelsen</a></li>
+          <li><a href="#hantverkare">Hantverkare</a></li>
+          <li><a href="#styrelsen">Stiftelsens styrelse</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Följ</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/lassewinnerback/">Facebook</a></li>
+          <li><a href="https://www.instagram.com/larswinnerback/">Instagram</a></li>
+          <li><a href="https://soundcloud.com/user-102938127">Nyponpodden</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© Lars Winnerbäcks Stiftelse</span>
+      <a href="{{ styrelsen.policy }}" target="_blank" rel="noopener">{{ styrelsen.policy_text }}</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+# Nyponet i media. Raderna under "utvald" visas överst. De tre senaste åren syns direkt,
+# äldre år ligger under "Visa äldre år".
+# Ny artikel: lägg till en rad med titel och url under rätt år.
+
+utvald:
+  - titel: Lars Winnerbäck om Linköping, Snoddas och hårdrocksballader – Kvar i stan
+    url: https://podcasts.nu/avsnitt/kvar-i-stan/lars-winnerback-om-linkoping-snoddas-och-hardrocksballader
+  - titel: Nyponet – ett pris till kulturens eldsjälar
+    url: https://soundcloud.com/user-102938127/nyponet-ett-pris-till-kulturens-eldsjalar
+ar:
+  - ar: 2025
+    artiklar:
+      - titel: Fullsatt när Lars Winnerbäck delade ut Nyponet – butiksägare vann
+        url: https://www.sverigesradio.se/artikel/fullsatt-nar-lars-winnerback-delade-ut-nyponet-for-tionde-gangen
+      - titel: "Edvard ger musiken ett hem – prisades: ”Otroligt hedrande”"
+        url: https://www.sverigesradio.se/artikel/edvard-ger-musiken-ett-hem-prisades-otroligt-hedrande
+      - titel: "Han vinner årets nyponpris: ”Oerhört förvånad”"
+        url: https://www.corren.se/kultur/linkoping/artikel/han-vinner-arets-nyponpris-oerhort-forvanad/r39y26or
+      - titel: "Lars Winnerbäck har delat ut Nyponpriset: ”Once in a lifetime-grej”"
+        url: https://www.svt.se/nyheter/lokalt/ost/lars-winnerback-har-delat-ut-nyponpriset-once-in-a-lifetime-grej
+      - titel: "De fick första Nyponpriset: ”Blev en viktig milstolpe”"
+        url: https://www.svt.se/nyheter/lokalt/ost/de-fick-forsta-nyponpriset-blev-en-viktig-milstolpe
+  - ar: 2024
+    artiklar:
+      - titel: "Vinnaren om samtalet från Winnerbäck: ”Frågade om han skojade”"
+        url: https://www.corren.se/kultur/linkoping/artikel/far-100-000-kr-av-winnerback-men-anrika-kafeet-ska-anda-saljas/rkvve3vj
+      - titel: Linköpingskafé vinner Winnerbäcks Nyponpris
+        url: https://www.sverigesradio.se/artikel/kafe-fick-ta-emot-arets-nyponpris-av-lars-winnerback
+      - titel: Dags för Winnerbäck att dela ut sitt pris – här är vinnarna!
+        url: https://www.corren.se/kultur/linkoping/artikel/gor-linkoping-till-en-roligare-stad-de-far-winnerbacks-pris/rmyy391r
+      - titel: "Han skapar årets Nyponpris: ”Lät som en kul idé”"
+        url: https://www.corren.se/kultur/linkoping/artikel/han-skapar-arets-nyponpris-se-det-specialdesignade-nyponet-har/jnee1mmj
+  - ar: 2023
+    artiklar:
+      - titel: 21-åring får Winnerbäcks Nyponpris
+        url: https://sverigesradio.se/artikel/klart-21-aring-far-winnerbacks-nyponpris
+      - titel: Teatermannen Jakob Graf fick årets Nypon
+        url: https://corren.se/bli-prenumerant/artikel/l7emxx8j/oc-bd-0kr-dp_week
+      - titel: Han är årets vinnare av Nyponpriset – vi rapporterade
+        url: https://corren.se/bli-prenumerant/artikel/lyg1ompl/oc-bd-0kr-dp_week
+      - titel: Klara från Linköping har tillverkat årets Nyponpris
+        url: https://corren.se/bli-prenumerant/artikel/rxvkm4kl/oc-bd-0kr-dp_week
+  - ar: 2022
+    artiklar:
+      - titel: "Lilla bion utanför Linköping får årets Nyponpris: ”Överväldigande”"
+        url: https://sverigesradio.se/artikel/lilla-bion-utanfor-linkoping-far-arets-nyponpris-overvaldigande
+      - titel: Eklunda bio är årets Nyponvinnare
+        url: https://corren.se/bli-prenumerant/artikel/lw397e7j
+      - titel: De vann årets Nyponpris – så rapporterade vi direkt
+        url: https://corren.se/bli-prenumerant/artikel/jd14d5vj
+      - titel: Åke och Anders är vår tids sanna kulturhjältar
+        url: https://nt.se/bli-prenumerant/artikel/rx3pv8vr
+      - titel: Caroline från Linköping har skapat årets nypon
+        url: https://corren.se/bli-prenumerant/artikel/lq1437kr/oc-bd-0kr-dp_week
+  - ar: 2021
+    artiklar:
+      - titel: Stand up-komikern Ben Kersley får Winnerbäcks Nyponpris
+        url: https://sverigesradio.se/artikel/stand-up-komikern-ben-kersley-far-winnerbacks-nyponpris
+      - titel: Ben Kersley – en ”doer” som är väl värd sitt Nypon
+        url: https://corren.se/bli-prenumerant/artikel/jog940qr
+      - titel: I år delar Winnerbäck ut ett halvt nypon
+        url: https://corren.se/bli-prenumerant/artikel/r91ywnol/oc-bd-0kr-dp_week
+  - ar: 2020
+    artiklar:
+      - titel: Se Sami Rahim motta Nyponpriset 2020
+        url: /dokument/nyponpriset-2020.mov
+      - titel: "Nyponvinnaren: ”Jag har två hemligheter på gång”"
+        url: https://corren.se/asikter/artikel/nyponvinnaren-jag-har-tva-hemligheter-pa-gang/kr26713l
+      - titel: "Klart: Han får Lars Winnerbäcks Nyponpris 2020"
+        url: https://corren.se/artikel/kr26713l
+      - titel: Han får Lars Winnerbäcks nypon
+        url: https://corren.se/bostad/artikel/han-far-lars-winnerbacks-nypon/er9gxozl
+      - titel: Hon har skapat årets nyponpris
+        url: https://corren.se/artikel/wjok037l
+  - ar: 2019
+    artiklar:
+      - titel: "TV: Här delas årets Nyponet ut"
+        url: https://www.corren.se/nyheter/linkoping/tv-har-delas-arets-nyponet-ut-om5990718.aspx
+      - titel: Lars Winnerbäck delade ut Nyponet till Ulrika Reinholdsson
+        url: https://sverigesradio.se/sida/artikel.aspx?programid=3338&artikel=7199434
+      - titel: ”Jag fick mitt livs chock”
+        url: https://www.corren.se/nyheter/linkoping/jag-fick-mitt-livs-chock-om5991344.aspx
+      - titel: P4 Musik, Lars Winnerbäck berättar
+        url: https://sverigesradio.se/sida/avsnitt/1265543?programid=3338
+        efter: (start ca 7 min in i programmet)
+      - titel: Hon har skapat årets Nyponpris
+        url: https://www.corren.se/kultur-noje/hon-har-skapat-arets-nyponpris-om5926619.aspx
+  - ar: 2018
+    artiklar:
+      - titel: NärCons skapare fick Nyponpriset
+        url: http://www.corren.se/kultur-noje/narcons-skapare-fick-nyponpriset-om5257799.aspx
+      - titel: Se årets vinnare av Nyponpriset ta emot utmärkelsen
+        url: http://www.mvt.se/webb-tv/?clip=om5257835
+      - titel: Sam prisas för festivalen NärCon – P4 Östergötland | Sveriges Radio
+        url: https://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6935602
+      - titel: I år blir det hårda nypon
+        url: http://www.corren.se/kultur-noje/i-ar-blir-det-harda-nypon-om5245328.aspx
+  - ar: 2017
+    artiklar:
+      - titel: Här hyllar Winnerbäck Nypon-vinnarna
+        url: http://www.corren.se/kultur-noje/har-hyllar-winnerback-nypon-vinnarna-om4560980.aspx
+      - titel: Gaphals och City to city får Nyponet av Winnerbäck
+        url: http://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6659596
+      - titel: Winnerbäcks stipendium till skivbolag och konsertarrangör
+        url: https://www.svt.se/nyheter/lokalt/ost/nyponet-till-skivbolag-och-konsertarrangor
+      - titel: Winnerbäck delade ut pris ”hemma”
+        url: http://ostgota.lokaltidningen.se/nyheter/nyheter_lokala_mjolby/2017-03-27/-Winnerb%C3%A4ck-delade-ut-pris-hemma-342476.html
+      - titel: Lars Winnerbäck gäst i studion – P4 Östergötland | Sveriges Radio
+        url: https://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6659369
+      - titel: Här är årets Winnerbäck-pris
+        url: http://www.corren.se/kultur-noje/har-ar-arets-winnerback-pris-om4559342.aspx
+  - ar: 2016
+    artiklar:
+      - titel: Kondis med kultur fick Winnerbäcks nya pris
+        url: https://www.svt.se/nyheter/lokalt/ost/babbets-kafferi-far-winnerbacks-nya-pris
+      - titel: Winnerbäcks kulturpris till Babettes Kafferi
+        url: http://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6394448
+      - titel: Winnerbäck instiftar pris
+        url: https://www.svt.se/nyheter/lokalt/ost/winnerback-instiftar-pris
+      - titel: Winnerbäck instiftar kulturpris i Linköping
+        url: http://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6353050&playaudio=5592052
+      - titel: Kommunen välkomnar Winnerbäcks kulturpris
+        url: http://sverigesradio.se/sida/artikel.aspx?programid=160&artikel=6353772
+      - titel: Tack för den presenten, Lasse!
+        url: http://www.corren.se/kultur-noje/asaskronika/tack-for-den-presenten-lasse-9076225.aspx
+      - titel: Winnerbäck instiftar nytt kulturpris
+        url: http://www.nt.se/nyheter/ostergotland/winnerback-instiftar-nytt-kulturpris-12488688.aspx
