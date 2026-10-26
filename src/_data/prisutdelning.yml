@@ -8,8 +8,8 @@
 #   plats:   Babettes Kafferi
 #   text:    (valfritt) en mening ur inlägget, t.ex. "Evenemanget har fri entré."
 
-datum:
-tid:
-timmar: 1
-plats:
-text:
+datum:    2026-12-05
+tid:      "16:30"
+timmar:   1
+plats:    Babettes Kafferi
+text:     "Evenemanget har fri entré."
