@@ -152,8 +152,9 @@ a { color: inherit; }
 .glimt.syns { opacity: 1; transform: translate(-50%, 0); }
 .glimt-bilder { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .glimt-bilder img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-2); display: block; }
-.glimt-nypon[hidden] { display: none; }
-.glimt-bilder:has(.glimt-nypon[hidden]) { grid-template-columns: 1fr; }
+.glimt-bilder.en { grid-template-columns: 1fr; }
+/* Bild som inte hunnit laddas visas som tom ruta, aldrig som förra årets bild */
+.glimt-bilder img.vantar { opacity: 0; }
 .glimt p { margin: 10px 2px 0; font-size: 14px; line-height: 1.35; font-weight: 600; }
 .glimt-ar { color: var(--nypon); font-weight: 900; margin-right: 6px; }
 
@@ -167,8 +168,8 @@ a { color: inherit; }
 .nasta-nar { margin: 4px 0 0; font-size: clamp(17px, 1.6vw, 21px); }
 .nasta-nar strong { font-weight: 800; }
 .nasta-text { margin: 2px 0 0; font-size: 15px; color: rgba(255, 255, 255, .85); }
+.nasta-knappar { display: flex; gap: 8px; flex-wrap: wrap; flex: none; }
 .nasta-kal {
-  flex: none;
   background: var(--paper); color: var(--ink);
   font-weight: 700; font-size: 15px; text-decoration: none;
   padding: 12px 18px;

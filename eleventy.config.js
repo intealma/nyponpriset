@@ -48,6 +48,23 @@ export default function (eleventyConfig) {
   };
   eleventyConfig.addFilter("klockslag", klockslag);
   eleventyConfig.addFilter("tidText", (t) => klockslag(t).map((n) => String(n).padStart(2, "0")).join("."));
+  // Länk som öppnar Google Kalender med prisutdelningen ifylld
+  eleventyConfig.addFilter("googleKalender", (p, site) => {
+    const d = new Date(p.datum);
+    const [h, m] = klockslag(p.tid);
+    const start = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, m));
+    const slut = new Date(start.getTime() + (Number(p.timmar) || 1) * 3600e3);
+    const lokal = (t) => t.toISOString().replace(/[-:]/g, "").slice(0, 15);
+    const q = new URLSearchParams({
+      action: "TEMPLATE",
+      text: site.namn,
+      dates: `${lokal(start)}/${lokal(slut)}`,
+      ctz: "Europe/Stockholm",
+      details: [p.text, site.url].filter(Boolean).join("\n\n"),
+    });
+    if (p.plats) q.set("location", p.plats);
+    return "https://calendar.google.com/calendar/render?" + q;
+  });
   // Sant om dagen inte har passerat ännu (räknat på hela dagen)
   eleventyConfig.addFilter("kommande", (d) => d && new Date(d).getTime() + 86400e3 > Date.now());
   // Hitta posten för ett visst år, t.ex. årets nypon till årtalsraden

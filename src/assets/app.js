@@ -36,18 +36,41 @@ if (nasta && new Date() > new Date(nasta.dataset.slut)) nasta.remove();
 // Glimten: stipendiatens foto och årets nypon när man pekar på ett år
 const years = document.querySelector('.years');
 const glimt = years.querySelector('.glimt');
-// Bilderna skapas först när de behövs, så att inga tomma bilder finns i sidan
-const gStip = Object.assign(document.createElement('img'), { className: 'glimt-stip', alt: '' });
-const gNypon = Object.assign(document.createElement('img'), { className: 'glimt-nypon', alt: '' });
-let gBilderKlara = false;
+const gBilder = glimt.querySelector('.glimt-bilder');
 let gDolj;
+
+// En färdig bild per adress. Bytet blir direkt, och den gamla bilden syns aldrig
+// medan den nya laddar. Bilderna skapas först när de behövs.
+const gCache = new Map();
+function gBild(src, klass) {
+  if (!gCache.has(src)) {
+    const img = Object.assign(document.createElement('img'), { className: klass, alt: '', decoding: 'async' });
+    img.addEventListener('load', () => img.classList.remove('vantar'), { once: true });
+    img.src = src;
+    if (!img.complete) img.classList.add('vantar');
+    gCache.set(src, img);
+  }
+  return gCache.get(src);
+}
+// Börja ladda alla års bilder så fort man närmar sig årtalsraden
+let gForladdat = false;
+function forladda() {
+  if (gForladdat) return;
+  gForladdat = true;
+  years.querySelectorAll('a[data-bild]').forEach(a => {
+    gBild(a.dataset.bild, 'glimt-stip');
+    if (a.dataset.nypon) gBild(a.dataset.nypon, 'glimt-nypon');
+  });
+}
+['pointerenter', 'touchstart', 'focusin'].forEach(h => years.addEventListener(h, forladda, { passive: true }));
 
 function visaGlimt(a) {
   clearTimeout(gDolj);
-  if (!gBilderKlara) { glimt.querySelector('.glimt-bilder').append(gStip, gNypon); gBilderKlara = true; }
-  if (gStip.getAttribute('src') !== a.dataset.bild) gStip.src = a.dataset.bild;
-  gNypon.hidden = !a.dataset.nypon;
-  if (a.dataset.nypon && gNypon.getAttribute('src') !== a.dataset.nypon) gNypon.src = a.dataset.nypon;
+  forladda();
+  const bilder = [gBild(a.dataset.bild, 'glimt-stip')];
+  if (a.dataset.nypon) bilder.push(gBild(a.dataset.nypon, 'glimt-nypon'));
+  gBilder.replaceChildren(...bilder);
+  gBilder.classList.toggle('en', bilder.length === 1);
   glimt.querySelector('.glimt-ar').textContent = a.textContent;
   glimt.querySelector('.glimt-namn').textContent = a.dataset.namn;
   glimt.hidden = false;

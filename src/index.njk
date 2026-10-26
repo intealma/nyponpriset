@@ -65,7 +65,10 @@ permalink: /index.html
         <p class="nasta-text">{{ prisutdelning.text }}</p>
         {%- endif %}
       </div>
-      <a class="nasta-kal" href="/prisutdelning.ics" download="nyponet-prisutdelning.ics">Lägg till i kalendern</a>
+      <div class="nasta-knappar">
+        <a class="nasta-kal" href="{{ prisutdelning | googleKalender(site) }}" target="_blank" rel="noopener">Google Kalender</a>
+        <a class="nasta-kal" href="/prisutdelning.ics">Apple Kalender</a>
+      </div>
     </div>
   </aside>
   {%- endif %}
